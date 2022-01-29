@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import ContactForm from '../ContactForm';
 import Filter from '../Filter';
 import ContactList from '../ContactList';
@@ -29,7 +30,7 @@ const App = () => {
     });
 
     if (searchContact) {
-      alert(`${name} is alredy in contacts!!!`);
+      toast.error(`${name} is alredy in contacts!!!`);
       return;
     }
     setContacts([
@@ -61,7 +62,7 @@ const App = () => {
   return (
     <Wrapper>
       <PageTitle>Phonebook</PageTitle>
-
+      <ToastContainer theme="colored" />
       <ContactForm contacts={contacts} onSubmit={onSubmitForm} />
       <ContactsTitle>Contacts</ContactsTitle>
 
