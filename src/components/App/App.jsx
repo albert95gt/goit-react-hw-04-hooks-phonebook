@@ -16,7 +16,7 @@ import { Wrapper, PageTitle, ContactsTitle } from './App.styled';
 // ]
 const App = () => {
   const [contacts, setContacts] = useState(() => {
-    return JSON.parse(window.localStorage.getItem('contacts')) ?? '';
+    return JSON.parse(window.localStorage.getItem('contacts')) ?? [];
   });
   const [filter, setFilter] = useState('');
 
